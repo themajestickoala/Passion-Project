@@ -10,7 +10,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'lol'
 
 S3_URL = 'https://s3-us-west-2.amazonaws.com'
-S3_BUCKET_NAME = 'passion-project-test'
+S3_BUCKET_NAME = 'passion-project2'
 S3_FOLDER = 'images'
 
 
