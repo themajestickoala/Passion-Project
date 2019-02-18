@@ -30,7 +30,13 @@ def upload_image():
 
     print(classification)
 
-    return render_template('upload_success.html', image_url=image_url)
+    result = classification['result'][0]
+    prediction = result['prediction'][0]
+
+    return render_template('upload_success.html',
+                           image_url=image_url,
+                           classification=classification,
+                           prediction=prediction)
 
 
 if __name__ == "__main__":

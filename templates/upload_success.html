@@ -3,12 +3,36 @@
   <head>
     <meta charset="utf-8">
     <title>AI Based Object Recognition</title>
+
+    <style>
+      #image-container {
+        z-index: 1;
+        margin-top: 10px;
+        margin-left: 10px;
+        position: relative;
+      }
+
+      #highlight-box {
+        z-index: 2;
+        position: absolute;
+        margin-top: calc(10px + {{ prediction['ymin'] }}px);
+        margin-left: calc(10px + {{ prediction['xmin'] }}px);
+        width: calc({{ prediction['xmax'] }}px - {{ prediction['xmin'] }}px);
+        height: calc({{ prediction['ymax'] }}px - {{ prediction['ymin'] }}px);
+        border: 5px solid black;
+      }
+    </style>
+
   </head>
   <body>
-    <h1> AI Object Recognition </h1>
-    <p> We have recived your picture and are now using magic to locate the Swedish Flag. </p>
-    <img src="{{image_url}}">
-
+    {% if classification['message'] == 'Success' %}
+      <div id="highlight-box"></div>
+      <div id="image-container">
+        <img src="{{image_url}}">
+      </div>
+      <p>Recognized {{ prediction['label'] }}</p>
+    {% else %}
+      <p>Could not identify image at this time... here's a cute gif instead</p>
+    {% endif %}
   </body>
-
 </html>
