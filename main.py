@@ -12,7 +12,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'lol'
 
 S3_URL = 'https://s3-us-west-2.amazonaws.com'
-S3_BUCKET = 'passion-project-test'
+S3_BUCKET = 'passion-project2'
 
 
 @app.route('/', methods=['GET'])
