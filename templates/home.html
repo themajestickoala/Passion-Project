@@ -26,8 +26,6 @@
           var xhr = new XMLHttpRequest();
           xhr.open("POST", s3Data.url);
 
-          console.log(s3Data);
-
           var postData = new FormData();
           for(key in s3Data.fields){
             postData.append(key, s3Data.fields[key]);
@@ -38,9 +36,7 @@
             if(xhr.readyState === 4){
               if(xhr.status === 200 || xhr.status === 204){
                 document.getElementById("wait_message").appendChild(document.createTextNode("Please wait up to 15 seconds"));
-                setTimeout(function(){
-                  window.location = "/upload";
-                }, 10000);
+                window.location = "/upload";
               }
               else{
                 alert("Could not upload file.");
