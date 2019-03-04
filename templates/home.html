@@ -35,7 +35,7 @@
           xhr.onreadystatechange = function() {
             if(xhr.readyState === 4){
               if(xhr.status === 200 || xhr.status === 204){
-                document.getElementById("wait_message").appendChild(document.createTextNode("Please wait up to 15 seconds"));
+                document.getElementById("wait_message").appendChild(document.createTextNode("Now uploading..."));
                 window.location = "/upload";
               }
               else{
